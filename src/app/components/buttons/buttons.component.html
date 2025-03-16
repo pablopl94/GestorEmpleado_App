@@ -1,0 +1,12 @@
+<div class="d-flex gap-2">
+    <button [routerLink]="['/updateEmpleado', miId]" class="btn btn-info">Modificar</button>
+    <!-- Si parent == 'card' -->
+    <ng-container *ngIf="parent === 'list'; else view">
+        <button [routerLink]="['/empleado', miId]" class="btn btn-warning">Detalles</button>
+    </ng-container>
+    <!-- Si parent == 'view' -->
+    <ng-template #view>
+        <button [routerLink]="['/home']" class="btn btn-warning">Volver</button>
+    </ng-template>
+    <button (click)="deleteEmpleado()" class="btn btn-danger">Eliminar</button>
+</div>

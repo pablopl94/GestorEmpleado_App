@@ -1,0 +1,24 @@
+<div class="table-responsive rounded-3 overflow-hidden mt-5">
+    <table class="table table-striped table-hover table-bordered mb-0">
+        <thead class="table-dark text-center">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Email</th>
+                <th class="w-25">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let empleado of empleados">
+                <td>{{ empleado.nombre }}</td>
+                <td>{{ empleado.apellidos }}</td>
+                <td>{{ empleado.email }}</td>
+                <td class="text-center">
+                    <div class="d-flex justify-content-center gap-2">
+                        <app-buttons [miId]="empleado.idEmpleado" (empleadoEliminado)="actualizarLista($event)" [parent]="'list'"></app-buttons>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

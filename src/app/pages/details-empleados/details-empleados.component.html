@@ -1,0 +1,35 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow p-4 w-50">
+    <h3 class="text-center mb-4">Detalles del Empleado</h3>
+
+    <ng-container *ngIf="empleado; else cargando">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <strong>ID:</strong> {{ empleado.idEmpleado }}
+        </li>
+        <li class="list-group-item">
+          <strong>Nombre:</strong> {{ empleado.nombre }}
+        </li>
+        <li class="list-group-item">
+          <strong>Apellido:</strong> {{ empleado.apellidos }}
+        </li>
+        <li class="list-group-item">
+          <strong>Email:</strong> {{ empleado.email }}
+        </li>
+      </ul>
+
+      <div class="d-flex justify-content-center mt-4">
+        <app-buttons [miId]="empleado.idEmpleado"></app-buttons>
+      </div>
+    </ng-container>
+
+    <ng-template #cargando>
+      <div class="text-center p-4">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Cargando...</span>
+        </div>
+        <p class="mt-3">Cargando detalles del empleado...</p>
+      </div>
+    </ng-template>
+  </div>
+</div>

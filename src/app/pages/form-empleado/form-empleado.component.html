@@ -1,0 +1,27 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="col-md-5 bg-light p-4 shadow rounded">
+      <h3 class="text-center">{{ isEdit ? 'Editar Empleado' : 'Nuevo Empleado' }}</h3>
+  
+      <form #empleadoForm="ngForm" (ngSubmit)="onSubmit(empleadoForm)">
+        <div class="mb-3">
+          <label class="form-label">Nombre:</label>
+          <input type="text" class="form-control" name="nombre" [(ngModel)]="empleado.nombre" required>
+        </div>
+  
+        <div class="mb-3">
+          <label class="form-label">Apellidos:</label>
+          <input type="text" class="form-control" name="apellidos" [(ngModel)]="empleado.apellidos" required>
+        </div>
+  
+        <div class="mb-3">
+          <label class="form-label">Email:</label>
+          <input type="email" class="form-control" name="email" [(ngModel)]="empleado.email" required>
+        </div>
+  
+        <button class="btn btn-success w-100" [disabled]="empleadoForm.invalid">
+          {{ isEdit ? 'Actualizar' : 'Guardar' }}
+        </button>
+      </form>
+    </div>
+  </div>
+  
